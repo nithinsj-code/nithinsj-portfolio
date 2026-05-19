@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Nithin</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Browse Nithin's portfolio of AI and Full-Stack open-source projects, built dynamically using GitHub API integration.">
+  <meta name="keywords" content="GitHub Projects, Nithin Portfolio, AI Systems, Sadhurangam, Prep4Future">
+  <meta name="author" content="Nithin">
+  <meta property="og:title" content="Projects | Nithin">
+  <meta property="og:description"
+    content="Explore repositories and live demonstrations of Nithin's AI applications, RAG pipelines, and multiplayer systems.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Custom Cursor Elements -->
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+  <div class="custom-cursor-ring" id="cursor-ring"></div>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow glow-blue"></div>
+  <div class="ambient-glow glow-violet"></div>
+
+  <!-- ----------------------------------------------------
+       SECTION 1: HEADER / NAVIGATION
+       ---------------------------------------------------- -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">NITHIN<span>.</span></a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active-link">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-hamburger" id="nav-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ----------------------------------------------------
+       SECTION 2: PROJECTS SHOWCASE
+       ---------------------------------------------------- -->
+  <section class="projects" style="margin-top: 80px;">
+    <div class="container">
+      <h1 class="section-title">Open Source Projects</h1>
+
+      <!-- Skeleton Loader Container -->
+      <div class="projects-grid" id="projects-skeleton">
+        <!-- Skeleton Card 1 -->
+        <div class="skeleton-card">
+          <div class="project-top">
+            <div class="skeleton-circle"></div>
+            <div class="skeleton-line" style="width: 40px; height: 20px;"></div>
+          </div>
+          <div class="project-mid">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line text-1" style="margin-bottom: 0.5rem;"></div>
+            <div class="skeleton-line text-2" style="margin-bottom: 0.5rem;"></div>
+            <div class="skeleton-line text-3"></div>
+          </div>
+          <div class="skeleton-footer">
+            <div class="skeleton-line footer-1"></div>
+            <div class="skeleton-line footer-2"></div>
+          </div>
+        </div>
+
+        <!-- Skeleton Card 2 -->
+        <div class="skeleton-card">
+          <div class="project-top">
+            <div class="skeleton-circle"></div>
+            <div class="skeleton-line" style="width: 40px; height: 20px;"></div>
+          </div>
+          <div class="project-mid">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line text-1" style="margin-bottom: 0.5rem;"></div>
+            <div class="skeleton-line text-2" style="margin-bottom: 0.5rem;"></div>
+            <div class="skeleton-line text-3"></div>
+          </div>
+          <div class="skeleton-footer">
+            <div class="skeleton-line footer-1"></div>
+            <div class="skeleton-line footer-2"></div>
+          </div>
+        </div>
+
+        <!-- Skeleton Card 3 -->
+        <div class="skeleton-card">
+          <div class="project-top">
+            <div class="skeleton-circle"></div>
+            <div class="skeleton-line" style="width: 40px; height: 20px;"></div>
+          </div>
+          <div class="project-mid">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line text-1" style="margin-bottom: 0.5rem;"></div>
+            <div class="skeleton-line text-2" style="margin-bottom: 0.5rem;"></div>
+            <div class="skeleton-line text-3"></div>
+          </div>
+          <div class="skeleton-footer">
+            <div class="skeleton-line footer-1"></div>
+            <div class="skeleton-line footer-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Dynamic Container (hidden initially) -->
+      <div class="projects-grid" id="projects-container" style="display: none;">
+        <!-- Injected via projects.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------
+       SECTION 3: FOOTER
+       ---------------------------------------------------- -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <a href="index.html" class="footer-logo">NITHIN<span>.</span></a>
+      <p class="footer-copyright">
+        &copy; 2026 Nithin. Made with <i class="fa-solid fa-heart"></i> for the future of AI.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top-btn" id="scroll-top" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ----------------------------------------------------
+       EXTERNAL LIBRARIES
+       ---------------------------------------------------- -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+  <!-- Portfolio Core & Projects Javascript files -->
+  <script src="js/main.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+
+</html>

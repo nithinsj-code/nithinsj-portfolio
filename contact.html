@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Nithin</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Get in touch with Nithin. Submit a message or reach out via email, GitHub, or LinkedIn.">
+  <meta name="keywords" content="Contact Nithin, AI Developer Email, Nithin LinkedIn, Hire AI Developer">
+  <meta name="author" content="Nithin">
+  <meta property="og:title" content="Contact | Nithin">
+  <meta property="og:description"
+    content="Send a message or find Nithin's email address and social links to collaborate on AI projects.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Custom Cursor Elements -->
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+  <div class="custom-cursor-ring" id="cursor-ring"></div>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow glow-blue"></div>
+  <div class="ambient-glow glow-violet"></div>
+
+  <!-- ----------------------------------------------------
+       SECTION 1: HEADER / NAVIGATION
+       ---------------------------------------------------- -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">NITHIN<span>.</span></a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-hamburger" id="nav-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ----------------------------------------------------
+       SECTION 2: CONTACT SECTION
+       ---------------------------------------------------- -->
+  <section class="contact" style="margin-top: 80px;">
+    <div class="container">
+      <h1 class="section-title">Get In Touch</h1>
+
+      <div class="contact-grid animate-reveal">
+        
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <h2 class="contact-text-title">Let's build something intelligent together.</h2>
+          <p class="contact-desc">
+            Whether you have an interesting job opportunity, an open-source collaboration idea, or just want to chat about AI agent architectures and web engineering &mdash; feel free to drop a message.
+          </p>
+
+          <div class="contact-details">
+            <!-- Email -->
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-regular fa-envelope"></i></div>
+              <div>
+                <span style="color: var(--text-dark); font-size: 0.8rem; display: block; text-transform: uppercase;">Email Me</span>
+                <a href="mailto:sjnithincode@gmail.com">sjnithincode@gmail.com</a>
+              </div>
+            </div>
+
+            <!-- Email Copy Quick-Action -->
+            <div class="email-copy-box">
+              <button class="btn btn-secondary btn-copy" id="copy-email-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">
+                <i class="fa-regular fa-copy"></i> Copy Email
+              </button>
+            </div>
+
+            <!-- Location -->
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+              <div>
+                <span style="color: var(--text-dark); font-size: 0.8rem; display: block; text-transform: uppercase;">Location</span>
+                <span>Coimbatore, Tamil Nadu, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media Profiles -->
+          <div class="social-links">
+            <a href="https://github.com/nithinsj-code" target="_blank" class="social-icon" aria-label="GitHub Profile">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/nithin-s-j-1a6730303" target="_blank" class="social-icon" aria-label="LinkedIn Profile">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form glass" id="contact-form">
+          
+          <div class="form-group">
+            <input type="text" class="form-input" id="name" placeholder=" " required>
+            <label for="name" class="form-label">Your Name</label>
+          </div>
+
+          <div class="form-group">
+            <input type="email" class="form-input" id="email" placeholder=" " required>
+            <label for="email" class="form-label">Your Email</label>
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-input" id="message" placeholder=" " required></textarea>
+            <label for="message" class="form-label">Message Details</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary magnetic" data-strength="12" style="width: 100%;">
+            Send Message <i class="fa-solid fa-paper-plane" style="margin-left: 0.3rem;"></i>
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Toast Notification -->
+  <div class="toast-notif" id="copy-toast">
+    <i class="fa-solid fa-circle-check" style="color: var(--accent-blue);"></i> Email copied to clipboard!
+  </div>
+
+  <!-- ----------------------------------------------------
+       SECTION 3: FOOTER
+       ---------------------------------------------------- -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <a href="index.html" class="footer-logo">NITHIN<span>.</span></a>
+      <p class="footer-copyright">
+        &copy; 2026 Nithin. Made with <i class="fa-solid fa-heart"></i> for the future of AI.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top-btn" id="scroll-top" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ----------------------------------------------------
+       EXTERNAL LIBRARIES
+       ---------------------------------------------------- -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+  <!-- Portfolio Core JavaScript -->
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+
+  <!-- Contact Form & Email Copy Local Interactive Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Copy Email action
+      const copyBtn = document.getElementById("copy-email-btn");
+      const toast = document.getElementById("copy-toast");
+
+      if (copyBtn && toast) {
+        copyBtn.addEventListener("click", () => {
+          const email = "sjnithincode@gmail.com";
+          navigator.clipboard.writeText(email).then(() => {
+            toast.classList.add("show");
+            setTimeout(() => {
+              toast.classList.remove("show");
+            }, 3000);
+          }).catch((err) => {
+            console.error("Could not copy email", err);
+          });
+        });
+      }
+
+      // 2. Submit Contact Form simulation
+      const contactForm = document.getElementById("contact-form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const submitBtn = contactForm.querySelector("button[type='submit']");
+          const originalContent = submitBtn.innerHTML;
+
+          submitBtn.innerHTML = `Sending... <i class="fa-solid fa-spinner fa-spin"></i>`;
+          submitBtn.disabled = true;
+
+          setTimeout(() => {
+            submitBtn.innerHTML = `Message Sent! <i class="fa-solid fa-check"></i>`;
+            submitBtn.style.background = "#10b981";
+
+            contactForm.reset();
+
+            setTimeout(() => {
+              submitBtn.innerHTML = originalContent;
+              submitBtn.style.background = "";
+              submitBtn.disabled = false;
+            }, 3000);
+          }, 1500);
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
