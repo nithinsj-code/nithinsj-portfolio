@@ -3,17 +3,16 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!statNodes.length) return;
 
   const username = "nithinsj-code";
-  const fallbackStats = {
-    repos: 0,
-    commits: 0,
-    stars: 0
-  };
+  const fallbackText = "--";
 
   function setStat(type, value) {
-    const normalizedValue = Number.isFinite(value) ? value : fallbackStats[type];
     document.querySelectorAll(`[data-github-stat="${type}"]`).forEach((node) => {
-      node.dataset.target = String(normalizedValue);
-      animateStat(node, normalizedValue);
+      if (Number.isFinite(value)) {
+        node.dataset.target = String(value);
+        animateStat(node, value);
+      } else {
+        node.textContent = fallbackText;
+      }
     });
   }
 
@@ -54,12 +53,16 @@ document.addEventListener("DOMContentLoaded", () => {
   async function getRepoCommitCount(repo) {
     if (!repo.default_branch || repo.empty) return 0;
 
-    const response = await fetch(
-      `https://api.github.com/repos/${username}/${repo.name}/commits?sha=${encodeURIComponent(repo.default_branch)}&per_page=1`
-    );
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/${username}/${repo.name}/commits?sha=${encodeURIComponent(repo.default_branch)}&per_page=1`
+      );
 
-    if (!response.ok) return 0;
-    return parseLastPage(response.headers.get("Link"));
+      if (!response.ok) return null;
+      return parseLastPage(response.headers.get("Link"));
+    } catch (error) {
+      return null;
+    }
   }
 
   async function loadGithubStats() {
@@ -72,17 +75,17 @@ document.addEventListener("DOMContentLoaded", () => {
       const repos = await reposResponse.json();
       const sourceRepos = repos.filter((repo) => !repo.fork);
       const publicProjectCount = sourceRepos.length || repos.length;
-      const totalStars = sourceRepos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
 
       setStat("repos", publicProjectCount);
-      setStat("stars", totalStars);
 
       const commitCounts = await Promise.all(sourceRepos.slice(0, 45).map(getRepoCommitCount));
-      const totalCommits = commitCounts.reduce((sum, count) => sum + count, 0);
-      setStat("commits", totalCommits);
+      const validCommitCounts = commitCounts.filter((count) => Number.isFinite(count));
+      const totalCommits = validCommitCounts.reduce((sum, count) => sum + count, 0);
+      setStat("commits", validCommitCounts.length ? totalCommits : NaN);
     } catch (error) {
       console.warn("Unable to load live GitHub stats.", error);
-      Object.entries(fallbackStats).forEach(([type, value]) => setStat(type, value));
+      setStat("repos", NaN);
+      setStat("commits", NaN);
     }
   }
 

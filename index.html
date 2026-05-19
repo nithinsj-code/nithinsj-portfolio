@@ -846,7 +846,7 @@
     /* Statistics Row */
     .about-stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
       margin-top: 2rem;
     }
@@ -2086,16 +2086,12 @@
 
           <div class="about-stats">
             <div class="stat-card glass">
-              <div class="stat-number count-up" data-target="0" data-github-stat="repos">...</div>
+              <div class="stat-number" data-github-stat="repos">...</div>
               <div class="stat-label">GitHub Projects</div>
             </div>
             <div class="stat-card glass">
-              <div class="stat-number count-up" data-target="0" data-github-stat="commits">...</div>
+              <div class="stat-number" data-github-stat="commits">...</div>
               <div class="stat-label">Git Commits</div>
-            </div>
-            <div class="stat-card glass">
-              <div class="stat-number count-up" data-target="0" data-github-stat="stars">...</div>
-              <div class="stat-label">GitHub Stars</div>
             </div>
           </div>
         </div>
@@ -2620,6 +2616,8 @@
       // Count Up animations in About section
       const countUpStats = document.querySelectorAll(".count-up");
       countUpStats.forEach((stat) => {
+        if (stat.hasAttribute("data-github-stat")) return;
+
         const target = parseInt(stat.getAttribute("data-target"), 10);
         ScrollTrigger.create({
           trigger: stat,

@@ -154,6 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Count Up animations
     const countUpStats = document.querySelectorAll(".count-up");
     countUpStats.forEach((stat) => {
+      if (stat.hasAttribute("data-github-stat")) return;
+
       const target = parseInt(stat.getAttribute("data-target"), 10);
       ScrollTrigger.create({
         trigger: stat,
