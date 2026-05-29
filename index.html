@@ -34,24 +34,24 @@
        1. CORE DESIGN SYSTEM & VARIABLES
        ---------------------------------------------------- */
     :root {
-      --bg-color: #20212B;
-      --bg-darker: #12131A;
-      --bg-card: rgba(45, 67, 84, 0.52);
-      --bg-card-hover: rgba(158, 103, 82, 0.65);
-      --bg-slate: #2D4354;
+      --bg-color: #232323;
+      --bg-darker: #111111;
+      --bg-card: rgba(38, 38, 38, 0.68);
+      --bg-card-hover: rgba(255, 140, 42, 0.18);
+      --bg-slate: #343434;
 
-      --accent-blue: #FED7A5;
-      --accent-blue-glow: rgba(254, 215, 165, 0.35);
-      --accent-violet: #9E6752;
-      --accent-violet-glow: rgba(158, 103, 82, 0.35);
-      --accent-maroon: #534145;
+      --accent-blue: #FF8C2A;
+      --accent-blue-glow: rgba(255, 140, 42, 0.36);
+      --accent-violet: #FFB15C;
+      --accent-violet-glow: rgba(255, 177, 92, 0.28);
+      --accent-maroon: #3A2A20;
 
-      --text-main: #FFF7EA;
-      --text-muted: #CDBFA7;
-      --text-dark: #73766A;
+      --text-main: #FFF7EF;
+      --text-muted: #D6C8BA;
+      --text-dark: #8A8178;
 
-      --border-color: rgba(254, 215, 165, 0.12);
-      --border-glow: rgba(254, 215, 165, 0.15);
+      --border-color: rgba(255, 140, 42, 0.15);
+      --border-glow: rgba(255, 140, 42, 0.18);
 
       --font-heading: 'Space Grotesk', sans-serif;
       --font-body: 'Outfit', sans-serif;
@@ -77,9 +77,9 @@
 
     body {
       background:
-        radial-gradient(circle at 18% 10%, rgba(45, 67, 84, 0.34), transparent 34rem),
-        radial-gradient(circle at 82% 8%, rgba(254, 215, 165, 0.11), transparent 30rem),
-        radial-gradient(circle at 55% 52%, rgba(158, 103, 82, 0.10), transparent 36rem),
+        radial-gradient(circle at 18% 10%, rgba(70, 70, 70, 0.34), transparent 34rem),
+        radial-gradient(circle at 82% 8%, rgba(255, 140, 42, 0.12), transparent 30rem),
+        radial-gradient(circle at 55% 52%, rgba(255, 177, 92, 0.08), transparent 36rem),
         linear-gradient(180deg, var(--bg-color) 0%, var(--bg-darker) 100%);
       color: var(--text-main);
       font-family: var(--font-body);
@@ -99,7 +99,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: rgba(254, 215, 165, 0.18);
+      background: rgba(255, 140, 42, 0.2);
       border-radius: 4px;
       transition: var(--transition-smooth);
     }
@@ -110,7 +110,7 @@
 
     /* Selection */
     ::selection {
-      background: rgba(158, 103, 82, 0.3);
+      background: rgba(255, 140, 42, 0.28);
       color: #ffffff;
     }
 
@@ -156,7 +156,7 @@
     }
 
     .glass:hover {
-      border-color: rgba(254, 215, 165, 0.2);
+      border-color: rgba(255, 140, 42, 0.24);
       box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px 0 var(--border-glow);
     }
 
@@ -181,7 +181,7 @@
       background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
       color: #ffffff;
       border: none;
-      box-shadow: 0 4px 15px rgba(158, 103, 82, 0.25);
+      box-shadow: 0 4px 15px rgba(255, 140, 42, 0.25);
     }
 
     .btn-primary::before {
@@ -201,7 +201,7 @@
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(158, 103, 82, 0.4), 0 0 15px var(--accent-blue-glow);
+      box-shadow: 0 6px 20px rgba(255, 140, 42, 0.36), 0 0 15px var(--accent-blue-glow);
     }
 
     .btn-secondary {
@@ -295,7 +295,7 @@
       width: 48px;
       height: 48px;
       border-color: var(--accent-blue);
-      background-color: rgba(254, 215, 165, 0.05);
+      background-color: rgba(255, 140, 42, 0.06);
     }
 
     /* ----------------------------------------------------
@@ -385,7 +385,7 @@
       flex-direction: column;
       justify-content: flex-end;
       gap: 0.3rem;
-      border-left: 2px solid rgba(158, 103, 82, 0.3);
+      border-left: 2px solid rgba(255, 140, 42, 0.3);
       padding-left: 1rem;
     }
 
@@ -396,7 +396,7 @@
     }
 
     .terminal-line.success {
-      color: #FED7A5;
+      color: #FF8C2A;
     }
 
     @keyframes typeLine {
@@ -417,10 +417,10 @@
       padding: 1.2rem 0;
       z-index: 5000;
       transition: var(--transition-smooth);
-      background: rgba(18, 19, 26, 0.82);
+      background: rgba(17, 17, 17, 0.84);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(254, 215, 165, 0.16);
+      border-bottom: 1px solid rgba(255, 140, 42, 0.18);
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
       opacity: 1 !important;
       visibility: visible !important;
@@ -428,7 +428,7 @@
 
     .navbar.scrolled {
       padding: 0.8rem 0;
-      background: rgba(18, 19, 26, 0.94);
+      background: rgba(17, 17, 17, 0.94);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-color);
@@ -532,7 +532,7 @@
       left: 0;
       width: 100%;
       height: 100vh;
-      background-color: rgba(18, 19, 26, 0.97);
+      background-color: rgba(17, 17, 17, 0.97);
       backdrop-filter: blur(20px);
       z-index: 999;
       display: flex;
@@ -608,10 +608,10 @@
       margin-bottom: 1rem;
       display: inline-block;
       letter-spacing: 2px;
-      border: 1px solid rgba(254, 215, 165, 0.2);
+      border: 1px solid rgba(255, 140, 42, 0.24);
       padding: 0.3rem 0.8rem;
       border-radius: 4px;
-      background: rgba(254, 215, 165, 0.05);
+      background: rgba(255, 140, 42, 0.06);
       backdrop-filter: blur(5px);
     }
 
@@ -770,7 +770,7 @@
     }
 
     .terminal-header {
-      background: rgba(158, 103, 82, 0.8);
+      background: rgba(255, 140, 42, 0.82);
       padding: 0.75rem 1rem;
       display: flex;
       align-items: center;
@@ -793,7 +793,7 @@
     }
 
     .terminal-dot.green {
-      background-color: #FED7A5;
+      background-color: #FF8C2A;
     }
 
     .terminal-title {
@@ -809,7 +809,7 @@
       font-size: 0.85rem;
       line-height: 1.7;
       color: #e2e8f0;
-      background: rgba(7, 21, 35, 0.85);
+      background: rgba(17, 17, 17, 0.88);
     }
 
     .terminal-code-comment {
@@ -821,7 +821,7 @@
     }
 
     .terminal-code-string {
-      color: #FED7A5;
+      color: #FFB15C;
     }
 
     .terminal-code-class {
@@ -906,9 +906,9 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(254, 215, 165, 0.05) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255, 140, 42, 0.06) 0%, transparent 70%);
       border: 1px solid rgba(255, 255, 255, 0.02);
-      box-shadow: 0 0 40px rgba(254, 215, 165, 0.02);
+      box-shadow: 0 0 40px rgba(255, 140, 42, 0.03);
     }
 
     .globe-canvas-container canvas {
@@ -1051,11 +1051,11 @@
     }
 
     .skill-tag:hover {
-      background: rgba(254, 215, 165, 0.06);
-      border-color: rgba(254, 215, 165, 0.3);
+      background: rgba(255, 140, 42, 0.07);
+      border-color: rgba(255, 140, 42, 0.28);
       color: #ffffff;
       transform: translateY(-2px);
-      box-shadow: 0 0 10px rgba(254, 215, 165, 0.1);
+      box-shadow: 0 0 10px rgba(255, 140, 42, 0.12);
     }
 
     .skill-tag:hover i {
@@ -1162,7 +1162,7 @@
 
     .chatbot-header {
       padding: 1.2rem 1.5rem;
-      background: rgba(45, 67, 84, 0.6);
+      background: rgba(38, 38, 38, 0.72);
       border-bottom: 1px solid var(--border-color);
       display: flex;
       align-items: center;
@@ -1179,8 +1179,8 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: #FED7A5;
-      box-shadow: 0 0 10px #FED7A5;
+      background-color: #FF8C2A;
+      box-shadow: 0 0 10px #FF8C2A;
     }
 
     .chatbot-name {
@@ -1203,7 +1203,7 @@
       display: flex;
       flex-direction: column;
       gap: 1.2rem;
-      background: rgba(7, 21, 35, 0.3);
+      background: rgba(17, 17, 17, 0.42);
     }
 
     .chat-message {
@@ -1239,7 +1239,7 @@
       color: #ffffff;
       border-radius: 16px 16px 4px 16px;
       align-self: flex-end;
-      box-shadow: 0 4px 15px rgba(158, 103, 82, 0.15);
+      box-shadow: 0 4px 15px rgba(255, 140, 42, 0.18);
     }
 
     .typing-bubble {
@@ -1281,7 +1281,7 @@
 
     .chatbot-suggestions {
       padding: 1.2rem 1.5rem;
-      background: rgba(45, 67, 84, 0.4);
+      background: rgba(38, 38, 38, 0.54);
       border-top: 1px solid var(--border-color);
     }
 
@@ -1316,7 +1316,7 @@
     }
 
     .suggestion-chip:hover {
-      background: rgba(254, 215, 165, 0.05);
+      background: rgba(255, 140, 42, 0.06);
       border-color: var(--accent-blue);
       color: #ffffff;
       transform: translateY(-1px);
@@ -1580,8 +1580,8 @@
       width: 45px;
       height: 45px;
       border-radius: 50%;
-      background: rgba(254, 215, 165, 0.05);
-      border: 1px solid rgba(254, 215, 165, 0.1);
+      background: rgba(255, 140, 42, 0.06);
+      border: 1px solid rgba(255, 140, 42, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1591,8 +1591,8 @@
     }
 
     .contact-item:hover .contact-icon {
-      background: rgba(158, 103, 82, 0.1);
-      border-color: rgba(158, 103, 82, 0.3);
+      background: rgba(255, 140, 42, 0.12);
+      border-color: rgba(255, 140, 42, 0.32);
       color: var(--accent-violet);
       transform: scale(1.1);
     }
@@ -1619,9 +1619,9 @@
       position: fixed;
       bottom: 2rem;
       right: 2rem;
-      background: rgba(45, 67, 84, 0.9);
+      background: rgba(38, 38, 38, 0.94);
       border: 1px solid var(--accent-blue);
-      box-shadow: 0 10px 30px rgba(254, 215, 165, 0.2);
+      box-shadow: 0 10px 30px rgba(255, 140, 42, 0.22);
       border-radius: 8px;
       padding: 0.8rem 1.5rem;
       font-family: var(--font-heading);
@@ -1686,14 +1686,14 @@
       left: 0.8rem;
       font-size: 0.75rem;
       padding: 0 0.4rem;
-      background-color: #20212B;
+      background-color: #232323;
       color: var(--accent-blue);
     }
 
     .form-input:focus {
       border-color: var(--accent-blue);
       background: rgba(255, 255, 255, 0.04);
-      box-shadow: 0 0 15px rgba(254, 215, 165, 0.1);
+      box-shadow: 0 0 15px rgba(255, 140, 42, 0.12);
     }
 
     textarea.form-input {
@@ -1831,7 +1831,7 @@
     .scroll-top-btn:hover {
       background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
       border-color: transparent;
-      box-shadow: 0 0 15px rgba(158, 103, 82, 0.4);
+      box-shadow: 0 0 15px rgba(255, 140, 42, 0.36);
       transform: translateY(-3px);
     }
 
@@ -1925,8 +1925,8 @@
       <svg class="loader-svg" viewBox="0 0 100 100">
         <defs>
           <linearGradient id="loaderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FED7A5" />
-            <stop offset="100%" stop-color="#9E6752" />
+            <stop offset="0%" stop-color="#FF8C2A" />
+            <stop offset="100%" stop-color="#FFB15C" />
           </linearGradient>
         </defs>
         <!-- Animated stroke drawing letter "N" -->
@@ -2388,7 +2388,7 @@
 
   <!-- Copy Toast Alert -->
   <div class="toast-notif" id="copy-toast">
-    <i class="fa-regular fa-circle-check" style="color: #FED7A5;"></i> Email copied to clipboard!
+    <i class="fa-regular fa-circle-check" style="color: #FF8C2A;"></i> Email copied to clipboard!
   </div>
 
 
@@ -2679,7 +2679,7 @@
         // Custom particle material
         const mat = new THREE.PointsMaterial({
           size: window.innerWidth < 768 ? 0.03 : 0.04,
-          color: 0xFED7A5,
+          color: 0xFF8C2A,
           transparent: true,
           opacity: 0.7,
           blending: THREE.AdditiveBlending
@@ -3096,7 +3096,7 @@
 
         setTimeout(() => {
           submitBtn.innerHTML = `Message Sent! <i class="fa-solid fa-check"></i>`;
-          submitBtn.style.background = "#9E6752";
+          submitBtn.style.background = "#FF8C2A";
 
           // Clear fields
           contactForm.reset();
@@ -3142,7 +3142,7 @@
         // 1. Central wireframe globe
         const sphereGeom = new THREE.SphereGeometry(1.6, 22, 22);
         const sphereMat = new THREE.MeshBasicMaterial({
-          color: 0xFED7A5,
+          color: 0xFF8C2A,
           wireframe: true,
           transparent: true,
           opacity: 0.10
@@ -3195,11 +3195,11 @@
           { name: "Python", color: "#3776ab" },
           { name: "Docker", color: "#2496ed" },
           { name: "Git", color: "#f05032" },
-          { name: "LLMs", color: "#9E6752" },
-          { name: "Agent Systems", color: "#FED7A5" },
+          { name: "LLMs", color: "#FF8C2A" },
+          { name: "Agent Systems", color: "#FFB15C" },
           { name: "RAG", color: "#ec4899" },
           { name: "Vector DBs", color: "#eab308" },
-          { name: "LangChain", color: "#FED7A5" },
+          { name: "LangChain", color: "#FFB15C" },
           { name: "JavaScript", color: "#f7df1e" },
           { name: "HTML5/CSS3", color: "#e34c26" },
           { name: "Tailwind", color: "#38bdf8" },
@@ -3223,8 +3223,8 @@
 
           // Draw glassmorphic tag capsule
           const grad = ctx.createLinearGradient(0, 0, 256, 80);
-          grad.addColorStop(0, 'rgba(45, 67, 84, 0.88)');
-          grad.addColorStop(1, 'rgba(7, 21, 35, 0.94)');
+          grad.addColorStop(0, 'rgba(38, 38, 38, 0.9)');
+          grad.addColorStop(1, 'rgba(17, 17, 17, 0.96)');
 
           ctx.fillStyle = grad;
           ctx.strokeStyle = color + "60"; // semi-transparent glow border
