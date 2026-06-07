@@ -1905,9 +1905,10 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="neo-brutal">
 
   <!-- Custom Cursor Elements -->
   <div class="custom-cursor-dot" id="cursor-dot"></div>
@@ -1988,9 +1989,6 @@
        SECTION 3: HERO SECTION
        ---------------------------------------------------- -->
   <section class="hero" id="hero">
-    <!-- Interactive Three.js Background Canvas -->
-    <canvas id="hero-canvas"></canvas>
-
     <div class="container hero-content">
       <span class="hero-pretitle">AI Engineer</span>
       <h1 class="hero-title">
@@ -2015,13 +2013,22 @@
           Get In Touch
         </a>
       </div>
-    </div>
 
-    <!-- Scroll Indicator -->
-    <a href="#about" class="scroll-indicator">
-      <span>EXPLORE</span>
-      <div class="scroll-mouse"></div>
-    </a>
+      <div class="hero-3d-scene" aria-hidden="true">
+        <div class="hero-orbit-card card-a">LLM</div>
+        <div class="hero-orbit-card card-b">RAG</div>
+        <div class="hero-orbit-card card-c">API</div>
+        <div class="hero-cube">
+          <span class="cube-face cube-front">AI</span>
+          <span class="cube-face cube-back">JS</span>
+          <span class="cube-face cube-right">PY</span>
+          <span class="cube-face cube-left">UI</span>
+          <span class="cube-face cube-top">DB</span>
+          <span class="cube-face cube-bottom">CI</span>
+        </div>
+        <div class="hero-shadow-plate"></div>
+      </div>
+    </div>
   </section>
 
 
@@ -2084,16 +2091,7 @@
             and containerizing web services with Docker.
           </p>
 
-          <div class="about-stats">
-            <div class="stat-card glass">
-              <div class="stat-number" data-github-stat="repos">...</div>
-              <div class="stat-label">GitHub Projects</div>
-            </div>
-            <div class="stat-card glass">
-              <div class="stat-number" data-github-stat="commits">...</div>
-              <div class="stat-label">Git Commits</div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
@@ -2108,20 +2106,6 @@
       <h2 class="section-title">Technical Expertise</h2>
 
       <div class="skills-wrapper">
-        <!-- Interactive 3D Globe Column -->
-        <div class="skills-globe-column animate-reveal">
-          <div class="globe-canvas-container">
-            <canvas id="skills-globe-canvas"></canvas>
-
-            <!-- Drag Indicators (Arrow marks near it) -->
-            <div class="globe-drag-hint">
-              <span class="hint-arrow left"><i class="fa-solid fa-chevron-left"></i></span>
-              <span class="hint-text">Drag to Spin</span>
-              <span class="hint-arrow right"><i class="fa-solid fa-chevron-right"></i></span>
-            </div>
-          </div>
-        </div>
-
         <!-- Categorized Skills Grid Column -->
         <div class="skills-info-column">
           <div class="skills-grid">
@@ -2973,12 +2957,14 @@
         projectsContainer.style.display = "grid";
 
         // Initialize Tilt elements newly added
-        VanillaTilt.init(document.querySelectorAll(".project-card"), {
-          max: 6,
-          speed: 400,
-          glare: true,
-          "max-glare": 0.15
-        });
+        if (!document.body.classList.contains("neo-brutal")) {
+          VanillaTilt.init(document.querySelectorAll(".project-card"), {
+            max: 6,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.15
+          });
+        }
 
         // Direct entry GSAP stagger animation on dynamic elements to avoid viewport height recalculation issues
         gsap.from(projectsContainer.querySelectorAll(".project-card"), {

@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="neo-brutal">
 
   <!-- Custom Cursor Elements -->
   <div class="custom-cursor-dot" id="cursor-dot"></div>
@@ -39,6 +39,29 @@
   <!-- Ambient Glow Effects -->
   <div class="ambient-glow glow-blue"></div>
   <div class="ambient-glow glow-violet"></div>
+
+  <div id="loader">
+    <div class="loader-logo-container">
+      <svg class="loader-svg" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="loaderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffe45c" />
+            <stop offset="100%" stop-color="#ff5c9a" />
+          </linearGradient>
+        </defs>
+        <path d="M25 75 V25 L75 75 V25" />
+      </svg>
+    </div>
+
+    <div class="loader-progress-box">
+      <div class="loader-percentage" id="loader-percent">0%</div>
+      <div class="loader-bar-bg">
+        <div class="loader-bar-fill" id="loader-bar"></div>
+      </div>
+    </div>
+
+    <div class="loader-terminal" id="loader-terminal"></div>
+  </div>
 
   <!-- ----------------------------------------------------
        SECTION 1: HEADER / NAVIGATION
@@ -75,7 +98,7 @@
   <!-- ----------------------------------------------------
        SECTION 2: ABOUT ME
        ---------------------------------------------------- -->
-  <section class="about" style="margin-top: 80px;">
+  <section class="about">
     <div class="container">
       <h1 class="section-title">About Me</h1>
 
@@ -115,16 +138,7 @@
             Bridging technical theory and actual software applications, I build full-stack interfaces that expose intelligent backend models. My focus is on writing clean, scalable code that delivers highly responsive and visually compelling experiences.
           </p>
 
-          <div class="about-stats">
-            <div class="stat-card glass">
-              <div class="stat-number"><span data-github-stat="repos">...</span></div>
-              <div class="stat-label">Projects Built</div>
-            </div>
-            <div class="stat-card glass">
-              <div class="stat-number"><span data-github-stat="commits">...</span></div>
-              <div class="stat-label">Git Commits</div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>

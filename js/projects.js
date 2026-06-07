@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
     projectsContainer.style.display = "grid";
 
     // Initialize Tilt
-    if (typeof VanillaTilt !== 'undefined') {
+    if (typeof VanillaTilt !== 'undefined' && !document.body.classList.contains("neo-brutal")) {
       VanillaTilt.init(document.querySelectorAll(".project-card"), {
         max: 6,
         speed: 400,
