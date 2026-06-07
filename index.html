@@ -2877,27 +2877,30 @@
             .map(name => allRepos.find(r => r.name.toLowerCase() === name.toLowerCase()))
             .filter(Boolean);
 
-          // If we found less than 6 featured repos (e.g. some might be missing or renamed),
-          // append other repositories from their profile to make it look complete, excluding profile README.
+          // If we found less than 6 featured repos append others to fill up to 6
           if (filteredRepos.length < 6) {
             const extraRepos = allRepos.filter(r =>
               !featuredRepoNames.includes(r.name.toLowerCase()) &&
               r.name.toLowerCase() !== username.toLowerCase()
             );
-            // Sort extra repos by stars
             extraRepos.sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0));
-
             while (filteredRepos.length < 6 && extraRepos.length > 0) {
               filteredRepos.push(extraRepos.shift());
             }
           }
 
-          renderRepos(filteredRepos);
+          if (filteredRepos.length > 0) {
+            renderRepos(filteredRepos);
+          }
         } catch (err) {
-          console.warn("GitHub API failed or rate limited. Displaying local fallback projects...", err);
-          renderRepos(fallbackRepos);
+          // Fallback already rendered, do nothing
+          console.warn("GitHub API unavailable, showing fallback projects.", err);
         }
       }
+
+      // Immediately render fallback so skeleton never stays — then upgrade with live data
+      renderRepos(fallbackRepos);
+      fetchGithubRepos();
 
       function renderRepos(repos) {
         projectsContainer.innerHTML = "";

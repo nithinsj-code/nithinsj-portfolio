@@ -102,10 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
       
-      renderRepos(filteredRepos);
+      if (filteredRepos.length > 0) {
+        renderRepos(filteredRepos);
+      }
     } catch (err) {
-      console.warn("GitHub API failed or rate limited. Displaying local fallback projects...", err);
-      renderRepos(fallbackRepos);
+      // Fallback already rendered — do nothing
+      console.warn("GitHub API unavailable, showing fallback projects.", err);
     }
   }
 
