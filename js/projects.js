@@ -193,5 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Render fallback immediately so skeleton doesn't stay
+  renderRepos(fallbackRepos);
   fetchGithubRepos();
 });
