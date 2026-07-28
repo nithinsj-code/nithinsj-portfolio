@@ -9,12 +9,28 @@ document.addEventListener("DOMContentLoaded", () => {
   // Static fallback repositories (in case GitHub API rate limits or fails)
   const fallbackRepos = [
     {
-      name: "prep4future-ai",
-      description: "AI-powered career platform featuring ATS resume scoring, voice-enabled mock interviews, and automated career coaching.",
+      name: "Prep4Future",
+      description: "Developed Prep4Future AI, a full-stack career preparation platform that provides AI-powered resume analysis, interview practice, and career coaching.",
       language: "TypeScript",
       stargazers_count: 0,
       forks_count: 0,
-      html_url: "https://github.com/nithinsj-code/prep4future-ai"
+      html_url: "https://github.com/nithinsj-code/Prep4Future"
+    },
+    {
+      name: "DraftRex",
+      description: "Developed DraftRex, a full-stack AI SaaS platform that helps freelance writers maintain distinct writing styles for multiple clients using AI-generated voice profiles.",
+      language: "TypeScript",
+      stargazers_count: 0,
+      forks_count: 0,
+      html_url: "https://github.com/nithinsj-code/DraftRex"
+    },
+    {
+      name: "DocGenius",
+      description: "Developed DocGenius, an AI-powered document analysis platform that allows users to upload PDFs, chat with document content, and generate AI-based text.",
+      language: "Python",
+      stargazers_count: 0,
+      forks_count: 0,
+      html_url: "https://github.com/nithinsj-code/DocGenius"
     },
     {
       name: "sadhurangam",
@@ -31,22 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
       stargazers_count: 0,
       forks_count: 0,
       html_url: "https://github.com/nithinsj-code/naturo-crop"
-    },
-    {
-      name: "nitzyai",
-      description: "Advanced personal AI agent chat system executing complex prompt workflows and context-aware responses.",
-      language: "HTML",
-      stargazers_count: 0,
-      forks_count: 0,
-      html_url: "https://github.com/nithinsj-code/nitzyai"
-    },
-    {
-      name: "hand-web",
-      description: "Computer vision web interface navigating and controlling UI elements dynamically using real-time hand gestures.",
-      language: "HTML",
-      stargazers_count: 0,
-      forks_count: 0,
-      html_url: "https://github.com/nithinsj-code/hand-web"
     },
     {
       name: "emotion-recognition",
@@ -68,11 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const featuredRepoNames = [
-    "prep4future-ai",
+    "Prep4Future",
+    "DraftRex",
+    "DocGenius",
     "sadhurangam",
     "naturo-crop",
-    "nitzyai",
-    "hand-web",
     "emotion-recognition"
   ];
 
