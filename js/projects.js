@@ -1,60 +1,56 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const projectsSkeleton = document.getElementById("projects-skeleton");
-  const projectsContainer = document.getElementById("projects-container");
+// projects.js — GitHub Showcase Renderer (Robust Static Fallback)
 
-  if (!projectsContainer) return;
+(function () {
+  "use strict";
 
-  const username = "nithinsj-code";
-
-  // Static fallback repositories (in case GitHub API rate limits or fails)
-  const fallbackRepos = [
+  const projects = [
     {
       name: "Prep4Future",
-      description: "Developed Prep4Future AI, a full-stack career preparation platform that provides AI-powered resume analysis, interview practice, and career coaching.",
+      displayName: "Prep4Future",
+      description: "AI-powered career preparation platform with resume analysis, interview practice, and career coaching.",
+      tags: ["Python", "TypeScript", "React", "FastAPI", "Groq"],
       language: "TypeScript",
-      stargazers_count: 0,
-      forks_count: 0,
-      html_url: "https://github.com/nithinsj-code/Prep4Future"
+      url: "https://github.com/nithinsj-code/Prep4Future"
     },
     {
       name: "DraftRex",
-      description: "Developed DraftRex, a full-stack AI SaaS platform that helps freelance writers maintain distinct writing styles for multiple clients using AI-generated voice profiles.",
+      displayName: "DraftRex",
+      description: "AI SaaS platform that helps freelance writers maintain distinct writing styles for multiple clients using AI-generated voice profiles.",
+      tags: ["Next.js", "FastAPI", "Python"],
       language: "TypeScript",
-      stargazers_count: 0,
-      forks_count: 0,
-      html_url: "https://github.com/nithinsj-code/DraftRex"
+      url: "https://github.com/nithinsj-code/DraftRex"
     },
     {
       name: "DocGenius",
-      description: "Developed DocGenius, an AI-powered document analysis platform that allows users to upload PDFs, chat with document content, and generate AI-based text.",
+      displayName: "DocGenius",
+      description: "AI-powered document analysis platform to upload PDFs, chat with document content, and generate AI-based text using RAG.",
+      tags: ["Python", "FastAPI", "RAG"],
       language: "Python",
-      stargazers_count: 0,
-      forks_count: 0,
-      html_url: "https://github.com/nithinsj-code/DocGenius"
+      url: "https://github.com/nithinsj-code/DocGenius"
     },
     {
-      name: "sadhurangam",
+      name: "Sadhurangam",
+      displayName: "Sadhurangam",
       description: "Full-stack real-time multiplayer chess platform with visual move history validation, draw offers, and resign states.",
+      tags: ["JavaScript", "Node.js", "Socket.io"],
       language: "JavaScript",
-      stargazers_count: 0,
-      forks_count: 0,
-      html_url: "https://github.com/nithinsj-code/sadhurangam"
+      url: "https://github.com/nithinsj-code/sadhurangam"
     },
     {
-      name: "naturo-crop",
-      description: "Intelligent farming assistant designed to detect plant diseases, recommend treatments, and optimize crop yields using ML and LLMs.",
-      language: "HTML",
-      stargazers_count: 0,
-      forks_count: 0,
-      html_url: "https://github.com/nithinsj-code/naturo-crop"
-    },
-    {
-      name: "emotion-recognition",
-      description: "Real-time deep learning facial expression analysis and emotion classification using custom CNN models in Python.",
+      name: "Naturo-Crop",
+      displayName: "Naturo Crop",
+      description: "Intelligent farming assistant to detect plant diseases, recommend treatments, and optimize crop yields using ML and LLMs.",
+      tags: ["Python", "ML", "LLM"],
       language: "Python",
-      stargazers_count: 0,
-      forks_count: 0,
-      html_url: "https://github.com/nithinsj-code/emotion-recognition"
+      url: "https://github.com/nithinsj-code/naturo-crop"
+    },
+    {
+      name: "Emotion-Recognition",
+      displayName: "Emotion Recognition",
+      description: "Real-time deep learning facial expression analysis and emotion classification using custom CNN models.",
+      tags: ["Python", "CNN", "OpenCV"],
+      language: "Python",
+      url: "https://github.com/nithinsj-code/emotion-recognition"
     }
   ];
 
@@ -67,124 +63,74 @@ document.addEventListener("DOMContentLoaded", () => {
     React: "#61dafb"
   };
 
-  const featuredRepoNames = [
-    "Prep4Future",
-    "DraftRex",
-    "DocGenius",
-    "sadhurangam",
-    "naturo-crop",
-    "emotion-recognition"
-  ];
+  function renderProjects() {
+    const skeleton = document.getElementById("projects-skeleton");
+    const container = document.getElementById("projects-container");
 
-  async function fetchGithubRepos() {
-    try {
-      const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
-      if (!response.ok) {
-        throw new Error(`API fetch status: ${response.status}`);
-      }
-      const allRepos = await response.json();
-      
-      // Filter to only include featured repos
-      const filteredRepos = featuredRepoNames
-        .map(name => allRepos.find(r => r.name.toLowerCase() === name.toLowerCase()))
-        .filter(Boolean);
+    if (!container) return;
 
-      // If we found less than 6 featured repos, append other repositories from profile
-      if (filteredRepos.length < 6) {
-        const extraRepos = allRepos.filter(r => 
-          !featuredRepoNames.includes(r.name.toLowerCase()) && 
-          r.name.toLowerCase() !== username.toLowerCase()
-        );
-        extraRepos.sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0));
-        
-        while (filteredRepos.length < 6 && extraRepos.length > 0) {
-          filteredRepos.push(extraRepos.shift());
-        }
-      }
-      
-      if (filteredRepos.length > 0) {
-        renderRepos(filteredRepos);
-      }
-    } catch (err) {
-      // Fallback already rendered — do nothing
-      console.warn("GitHub API unavailable, showing fallback projects.", err);
-    }
-  }
+    container.innerHTML = "";
 
-  function renderRepos(repos) {
-    projectsContainer.innerHTML = "";
+    projects.forEach(function (proj) {
+      const dotColor = langColors[proj.language] || "#aaaaaa";
 
-    repos.slice(0, 6).forEach((repo) => {
+      const tagsHtml = proj.tags
+        .map(function (t) { return '<span class="proj-tag">' + t + '</span>'; })
+        .join("");
+
       const card = document.createElement("div");
       card.className = "project-card glass";
-      card.setAttribute("data-tilt", "");
-      card.setAttribute("data-tilt-max", "6");
 
-      const lang = repo.language || "Python";
-      const dotColor = langColors[lang] || "#ffffff";
-      const description = repo.description || "Experimental AI/ML script testing various learning networks or API systems.";
+      card.innerHTML =
+        '<div class="project-top">' +
+          '<div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>' +
+          '<div class="project-links">' +
+            '<a href="' + proj.url + '" target="_blank" rel="noopener" aria-label="GitHub Repository" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>' +
+            '<a href="' + proj.url + '" target="_blank" rel="noopener" aria-label="Open project" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>' +
+          '</div>' +
+        '</div>' +
+        '<div class="project-mid">' +
+          '<h3 class="project-name">' + proj.displayName + '</h3>' +
+          '<p class="project-description">' + proj.description + '</p>' +
+          '<div class="proj-tags">' + tagsHtml + '</div>' +
+        '</div>' +
+        '<div class="project-bottom">' +
+          '<div class="project-lang">' +
+            '<span class="project-lang-dot" style="background-color:' + dotColor + ';"></span>' +
+            '<span>' + proj.language + '</span>' +
+          '</div>' +
+          '<div class="project-stats">' +
+            '<div class="project-stat-item"><i class="fa-regular fa-star"></i><span>0</span></div>' +
+            '<div class="project-stat-item"><i class="fa-solid fa-code-branch"></i><span>0</span></div>' +
+          '</div>' +
+        '</div>';
 
-      card.innerHTML = `
-        <div class="project-top">
-          <div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-          <div class="project-links">
-            <a href="${repo.html_url}" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-            <a href="${repo.html_url}" target="_blank" aria-label="Project Website"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          </div>
-        </div>
-        <div class="project-mid">
-          <h3 class="project-name">${repo.name.replace(/-/g, ' ')}</h3>
-          <p class="project-description">${description}</p>
-        </div>
-        <div class="project-bottom">
-          <div class="project-lang">
-            <span class="project-lang-dot" style="background-color: ${dotColor};"></span>
-            <span>${lang}</span>
-          </div>
-          <div class="project-stats">
-            <div class="project-stat-item">
-              <i class="fa-regular fa-star"></i>
-              <span>${repo.stargazers_count || 0}</span>
-            </div>
-            <div class="project-stat-item">
-              <i class="fa-solid fa-code-branch"></i>
-              <span>${repo.forks_count || 0}</span>
-            </div>
-          </div>
-        </div>
-      `;
-
-      card.addEventListener("click", () => {
-        window.open(repo.html_url, "_blank");
+      card.style.cursor = "pointer";
+      card.addEventListener("click", function () {
+        window.open(proj.url, "_blank");
       });
 
-      projectsContainer.appendChild(card);
+      container.appendChild(card);
     });
 
-    if (projectsSkeleton) {
-      projectsSkeleton.style.display = "none";
+    // Hide skeleton, show cards
+    if (skeleton) {
+      skeleton.style.display = "none";
     }
-    projectsContainer.style.display = "grid";
+    container.style.display = "grid";
 
-    // Initialize Tilt
-    if (typeof VanillaTilt !== 'undefined' && !document.body.classList.contains("neo-brutal")) {
-      VanillaTilt.init(document.querySelectorAll(".project-card"), {
-        max: 6,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.15
+    // Tilt effect (not on neo-brutal)
+    if (typeof VanillaTilt !== "undefined" && !document.body.classList.contains("neo-brutal")) {
+      VanillaTilt.init(container.querySelectorAll(".project-card"), {
+        max: 6, speed: 400, glare: true, "max-glare": 0.15
       });
     }
 
-    // Direct entry GSAP stagger animation
-    if (typeof gsap !== 'undefined') {
-      gsap.from(projectsContainer.querySelectorAll(".project-card"), {
-        opacity: 0,
-        y: 30,
-        stagger: 0.1,
-        duration: 0.6,
-        ease: "power2.out",
-        clearProps: "all"
+    // GSAP entrance animation
+    if (typeof gsap !== "undefined") {
+      gsap.from(container.querySelectorAll(".project-card"), {
+        opacity: 0, y: 30, stagger: 0.1, duration: 0.6,
+        ease: "power2.out", clearProps: "all"
       });
     }
 
@@ -193,7 +139,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Render fallback immediately so skeleton doesn't stay
-  renderRepos(fallbackRepos);
-  fetchGithubRepos();
-});
+  // Run immediately on DOMContentLoaded
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderProjects);
+  } else {
+    renderProjects();
+  }
+})();

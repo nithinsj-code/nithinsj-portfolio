@@ -1346,6 +1346,26 @@ body {
 .skeleton-line.footer-1 { width: 30%; height: 12px; }
 .skeleton-line.footer-2 { width: 25%; height: 12px; }
 
+/* Project Tech Tags */
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.proj-tag {
+  font-family: var(--font-code);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background: rgba(254, 215, 165, 0.08);
+  border: 1px solid rgba(254, 215, 165, 0.18);
+  color: var(--accent-blue);
+  letter-spacing: 0.02em;
+}
+
 /* ----------------------------------------------------
    9A. PROJECTS PAGE NEOBRUTALIST THEME
    ---------------------------------------------------- */
@@ -1671,6 +1691,19 @@ body {
   border-color: var(--neo-ink);
   box-shadow: 8px 8px 0 var(--neo-ink);
   transform: translate(-3px, -3px);
+}
+
+.projects-page .proj-tags {
+  margin-top: 0.4rem;
+}
+
+.projects-page .proj-tag {
+  background: var(--neo-yellow);
+  border: 2px solid var(--neo-ink);
+  border-radius: 0;
+  color: var(--neo-ink);
+  font-weight: 700;
+  box-shadow: 2px 2px 0 var(--neo-ink);
 }
 
 /* ----------------------------------------------------
