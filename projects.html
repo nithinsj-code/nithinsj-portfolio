@@ -5,64 +5,210 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | Nithin</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description"
-    content="Browse Nithin's portfolio of AI and Full-Stack open-source projects including Prep4Future, DraftRex, DocGenius and more.">
-  <meta name="keywords" content="GitHub Projects, Nithin Portfolio, AI Systems, Prep4Future, DraftRex, DocGenius">
+  <meta name="description" content="Nithin's open source AI and full-stack projects.">
   <meta name="author" content="Nithin">
-  <meta property="og:title" content="Projects | Nithin">
-  <meta property="og:description"
-    content="Explore repositories and live demonstrations of Nithin's AI applications, RAG pipelines, and multiplayer systems.">
-  <meta property="og:type" content="website">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- External Stylesheet -->
+  <!-- Site CSS -->
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ── Failsafe inline styles so cards show regardless ── */
+    .projects-section {
+      min-height: 100vh;
+      padding: 7rem 0 4rem;
+    }
+
+    .page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      background: #ff5c9a;
+      display: inline-block;
+      padding: 0.3rem 1rem 0.5rem;
+      border: 4px solid #111;
+      box-shadow: 8px 8px 0 #111;
+      color: #111;
+    }
+
+    .page-title-wrap {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .p-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 340px;
+      padding: 1.5rem;
+      background: #ffffff;
+      border: 4px solid #111;
+      box-shadow: 8px 8px 0 #111;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+      text-decoration: none;
+      color: #111;
+    }
+
+    .p-card:nth-child(2) { background: #eaff5f; }
+    .p-card:nth-child(3) { background: #c6f3ff; }
+    .p-card:nth-child(4) { background: #ffd0e1; }
+    .p-card:nth-child(5) { background: #d4ffd4; }
+    .p-card:nth-child(6) { background: #ffe3b3; }
+
+    .p-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 12px 12px 0 #111;
+    }
+
+    .p-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .p-folder {
+      font-size: 1.8rem;
+      color: #111;
+    }
+
+    .p-links {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .p-links a {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 3px solid #111;
+      box-shadow: 3px 3px 0 #111;
+      color: #111;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 120ms;
+    }
+
+    .p-links a:hover {
+      background: #2bd9fe;
+    }
+
+    .p-card-mid {
+      flex-grow: 1;
+      padding: 0.8rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .p-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #111;
+      margin: 0;
+    }
+
+    .p-desc {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      color: #222;
+      line-height: 1.5;
+      font-weight: 500;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .p-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.3rem;
+    }
+
+    .p-tag {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      background: #ffe45c;
+      border: 2px solid #111;
+      color: #111;
+    }
+
+    .p-card-bot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .p-lang {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #fff;
+      border: 3px solid #111;
+      box-shadow: 3px 3px 0 #111;
+      padding: 0.2rem 0.5rem;
+    }
+
+    .p-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid #111;
+      display: inline-block;
+    }
+  </style>
 </head>
 
 <body class="neo-brutal projects-page">
 
-  <!-- Custom Cursor Elements -->
-  <div class="custom-cursor-dot" id="cursor-dot"></div>
-  <div class="custom-cursor-ring" id="cursor-ring"></div>
-
-  <!-- Ambient Glow Effects -->
-  <div class="ambient-glow glow-blue"></div>
-  <div class="ambient-glow glow-violet"></div>
-
-  <!-- ----------------------------------------------------
-       SECTION 1: HEADER / NAVIGATION
-       ---------------------------------------------------- -->
+  <!-- Nav -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-logo">NITHIN<span>.</span></a>
-
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html" class="active-link">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-
       <div class="nav-hamburger" id="nav-hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Menu Overlay -->
+  <!-- Mobile Nav -->
   <div class="mobile-nav-overlay" id="mobile-nav">
     <ul class="mobile-nav-links">
       <li><a href="index.html">Home</a></li>
@@ -72,205 +218,163 @@
     </ul>
   </div>
 
-  <!-- ----------------------------------------------------
-       SECTION 2: PROJECTS SHOWCASE
-       ---------------------------------------------------- -->
-  <section class="projects">
+  <!-- =====================================================
+       PROJECTS SECTION
+       ===================================================== -->
+  <section class="projects-section">
     <div class="container">
-      <h1 class="section-title">Open Source Projects</h1>
 
-      <!-- Projects Grid — Static Cards (no JS needed) -->
-      <div class="projects-grid" id="projects-container">
+      <div class="page-title-wrap">
+        <h1 class="page-title">Open Source Projects</h1>
+      </div>
 
-        <!-- Card 1: Prep4Future -->
-        <div class="project-card glass" onclick="window.open('https://github.com/nithinsj-code/prep4future-ai','_blank')" style="cursor:pointer;">
-          <div class="project-top">
-            <div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-            <div class="project-links">
-              <a href="https://github.com/nithinsj-code/prep4future-ai" target="_blank" rel="noopener" aria-label="GitHub" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
-              <a href="https://github.com/nithinsj-code/prep4future-ai" target="_blank" rel="noopener" aria-label="Open" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </div>
-          </div>
-          <div class="project-mid">
-            <h3 class="project-name">Prep4Future</h3>
-            <p class="project-description">AI-powered career preparation platform with resume analysis, interview practice, and career coaching powered by Groq.</p>
-            <div class="proj-tags">
-              <span class="proj-tag">Python</span>
-              <span class="proj-tag">TypeScript</span>
-              <span class="proj-tag">React</span>
-              <span class="proj-tag">FastAPI</span>
-              <span class="proj-tag">Groq</span>
-            </div>
-          </div>
-          <div class="project-bottom">
-            <div class="project-lang">
-              <span class="project-lang-dot" style="background-color:#3178c6;"></span>
-              <span>TypeScript</span>
-            </div>
-            <div class="project-stats">
-              <div class="project-stat-item"><i class="fa-regular fa-star"></i><span>0</span></div>
-              <div class="project-stat-item"><i class="fa-solid fa-code-branch"></i><span>0</span></div>
-            </div>
-          </div>
-        </div>
+      <div class="cards-grid">
 
-        <!-- Card 2: DraftRex -->
-        <div class="project-card glass" onclick="window.open('https://github.com/nithinsj-code/draftrex','_blank')" style="cursor:pointer;">
-          <div class="project-top">
-            <div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-            <div class="project-links">
-              <a href="https://github.com/nithinsj-code/draftrex" target="_blank" rel="noopener" aria-label="GitHub" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
-              <a href="https://github.com/nithinsj-code/draftrex" target="_blank" rel="noopener" aria-label="Open" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <!-- 1. Prep4Future -->
+        <a class="p-card" href="https://github.com/nithinsj-code/prep4future-ai" target="_blank" rel="noopener">
+          <div class="p-card-top">
+            <div class="p-folder"><i class="fa-regular fa-folder-open"></i></div>
+            <div class="p-links">
+              <a href="https://github.com/nithinsj-code/prep4future-ai" target="_blank" rel="noopener" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/nithinsj-code/prep4future-ai" target="_blank" rel="noopener" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
           </div>
-          <div class="project-mid">
-            <h3 class="project-name">DraftRex</h3>
-            <p class="project-description">Full-stack AI SaaS platform that helps freelance writers maintain distinct writing styles for multiple clients using AI voice profiles.</p>
-            <div class="proj-tags">
-              <span class="proj-tag">Next.js</span>
-              <span class="proj-tag">FastAPI</span>
-              <span class="proj-tag">Python</span>
+          <div class="p-card-mid">
+            <h3 class="p-name">Prep4Future</h3>
+            <p class="p-desc">Full-stack AI career preparation platform with AI-powered resume analysis, interview practice, and career coaching.</p>
+            <div class="p-tags">
+              <span class="p-tag">Python</span>
+              <span class="p-tag">TypeScript</span>
+              <span class="p-tag">React</span>
+              <span class="p-tag">FastAPI</span>
+              <span class="p-tag">Groq</span>
             </div>
           </div>
-          <div class="project-bottom">
-            <div class="project-lang">
-              <span class="project-lang-dot" style="background-color:#3178c6;"></span>
-              <span>TypeScript</span>
-            </div>
-            <div class="project-stats">
-              <div class="project-stat-item"><i class="fa-regular fa-star"></i><span>0</span></div>
-              <div class="project-stat-item"><i class="fa-solid fa-code-branch"></i><span>0</span></div>
-            </div>
+          <div class="p-card-bot">
+            <div class="p-lang"><span class="p-dot" style="background:#3178c6;"></span> TypeScript</div>
           </div>
-        </div>
+        </a>
 
-        <!-- Card 3: DocGenius -->
-        <div class="project-card glass" onclick="window.open('https://github.com/nithinsj-code/doc-genius','_blank')" style="cursor:pointer;">
-          <div class="project-top">
-            <div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-            <div class="project-links">
-              <a href="https://github.com/nithinsj-code/doc-genius" target="_blank" rel="noopener" aria-label="GitHub" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
-              <a href="https://github.com/nithinsj-code/doc-genius" target="_blank" rel="noopener" aria-label="Open" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <!-- 2. DraftRex -->
+        <a class="p-card" href="https://github.com/nithinsj-code/draftrex" target="_blank" rel="noopener">
+          <div class="p-card-top">
+            <div class="p-folder"><i class="fa-regular fa-folder-open"></i></div>
+            <div class="p-links">
+              <a href="https://github.com/nithinsj-code/draftrex" target="_blank" rel="noopener" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/nithinsj-code/draftrex" target="_blank" rel="noopener" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
           </div>
-          <div class="project-mid">
-            <h3 class="project-name">DocGenius</h3>
-            <p class="project-description">AI-powered document analysis platform to upload PDFs, chat with document content, and generate AI-based text using RAG pipelines.</p>
-            <div class="proj-tags">
-              <span class="proj-tag">Python</span>
-              <span class="proj-tag">FastAPI</span>
-              <span class="proj-tag">RAG</span>
+          <div class="p-card-mid">
+            <h3 class="p-name">DraftRex</h3>
+            <p class="p-desc">AI SaaS platform helping freelance writers maintain distinct writing styles for multiple clients using AI-generated voice profiles.</p>
+            <div class="p-tags">
+              <span class="p-tag">Next.js</span>
+              <span class="p-tag">FastAPI</span>
+              <span class="p-tag">Python</span>
             </div>
           </div>
-          <div class="project-bottom">
-            <div class="project-lang">
-              <span class="project-lang-dot" style="background-color:#3572A5;"></span>
-              <span>Python</span>
-            </div>
-            <div class="project-stats">
-              <div class="project-stat-item"><i class="fa-regular fa-star"></i><span>0</span></div>
-              <div class="project-stat-item"><i class="fa-solid fa-code-branch"></i><span>0</span></div>
-            </div>
+          <div class="p-card-bot">
+            <div class="p-lang"><span class="p-dot" style="background:#3178c6;"></span> TypeScript</div>
           </div>
-        </div>
+        </a>
 
-        <!-- Card 4: Sadhurangam -->
-        <div class="project-card glass" onclick="window.open('https://github.com/nithinsj-code/sadhurangam','_blank')" style="cursor:pointer;">
-          <div class="project-top">
-            <div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-            <div class="project-links">
-              <a href="https://github.com/nithinsj-code/sadhurangam" target="_blank" rel="noopener" aria-label="GitHub" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
-              <a href="https://github.com/nithinsj-code/sadhurangam" target="_blank" rel="noopener" aria-label="Open" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <!-- 3. DocGenius -->
+        <a class="p-card" href="https://github.com/nithinsj-code/doc-genius" target="_blank" rel="noopener">
+          <div class="p-card-top">
+            <div class="p-folder"><i class="fa-regular fa-folder-open"></i></div>
+            <div class="p-links">
+              <a href="https://github.com/nithinsj-code/doc-genius" target="_blank" rel="noopener" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/nithinsj-code/doc-genius" target="_blank" rel="noopener" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
           </div>
-          <div class="project-mid">
-            <h3 class="project-name">Sadhurangam</h3>
-            <p class="project-description">Full-stack real-time multiplayer chess platform with visual move history validation, draw offers, and resign states.</p>
-            <div class="proj-tags">
-              <span class="proj-tag">JavaScript</span>
-              <span class="proj-tag">Node.js</span>
-              <span class="proj-tag">Socket.io</span>
+          <div class="p-card-mid">
+            <h3 class="p-name">DocGenius</h3>
+            <p class="p-desc">AI-powered document analysis platform to upload PDFs, chat with document content, and generate AI-based text using RAG.</p>
+            <div class="p-tags">
+              <span class="p-tag">Python</span>
+              <span class="p-tag">FastAPI</span>
+              <span class="p-tag">RAG</span>
             </div>
           </div>
-          <div class="project-bottom">
-            <div class="project-lang">
-              <span class="project-lang-dot" style="background-color:#f1e05a;"></span>
-              <span>JavaScript</span>
-            </div>
-            <div class="project-stats">
-              <div class="project-stat-item"><i class="fa-regular fa-star"></i><span>0</span></div>
-              <div class="project-stat-item"><i class="fa-solid fa-code-branch"></i><span>0</span></div>
-            </div>
+          <div class="p-card-bot">
+            <div class="p-lang"><span class="p-dot" style="background:#3572A5;"></span> Python</div>
           </div>
-        </div>
+        </a>
 
-        <!-- Card 5: Naturo Crop -->
-        <div class="project-card glass" onclick="window.open('https://github.com/nithinsj-code/naturo-crop','_blank')" style="cursor:pointer;">
-          <div class="project-top">
-            <div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-            <div class="project-links">
-              <a href="https://github.com/nithinsj-code/naturo-crop" target="_blank" rel="noopener" aria-label="GitHub" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
-              <a href="https://github.com/nithinsj-code/naturo-crop" target="_blank" rel="noopener" aria-label="Open" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <!-- 4. Sadhurangam -->
+        <a class="p-card" href="https://github.com/nithinsj-code/sadhurangam" target="_blank" rel="noopener">
+          <div class="p-card-top">
+            <div class="p-folder"><i class="fa-regular fa-folder-open"></i></div>
+            <div class="p-links">
+              <a href="https://github.com/nithinsj-code/sadhurangam" target="_blank" rel="noopener" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/nithinsj-code/sadhurangam" target="_blank" rel="noopener" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
           </div>
-          <div class="project-mid">
-            <h3 class="project-name">Naturo Crop</h3>
-            <p class="project-description">Intelligent farming assistant to detect plant diseases, recommend treatments, and optimize crop yields using ML and LLMs.</p>
-            <div class="proj-tags">
-              <span class="proj-tag">Python</span>
-              <span class="proj-tag">ML</span>
-              <span class="proj-tag">LLM</span>
+          <div class="p-card-mid">
+            <h3 class="p-name">Sadhurangam</h3>
+            <p class="p-desc">Full-stack real-time multiplayer chess platform with visual move history validation, draw offers, and resign states.</p>
+            <div class="p-tags">
+              <span class="p-tag">JavaScript</span>
+              <span class="p-tag">Node.js</span>
+              <span class="p-tag">Socket.io</span>
             </div>
           </div>
-          <div class="project-bottom">
-            <div class="project-lang">
-              <span class="project-lang-dot" style="background-color:#3572A5;"></span>
-              <span>Python</span>
-            </div>
-            <div class="project-stats">
-              <div class="project-stat-item"><i class="fa-regular fa-star"></i><span>0</span></div>
-              <div class="project-stat-item"><i class="fa-solid fa-code-branch"></i><span>0</span></div>
-            </div>
+          <div class="p-card-bot">
+            <div class="p-lang"><span class="p-dot" style="background:#f1e05a;"></span> JavaScript</div>
           </div>
-        </div>
+        </a>
 
-        <!-- Card 6: Emotion Recognition -->
-        <div class="project-card glass" onclick="window.open('https://github.com/nithinsj-code/emotion-recognition','_blank')" style="cursor:pointer;">
-          <div class="project-top">
-            <div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-            <div class="project-links">
-              <a href="https://github.com/nithinsj-code/emotion-recognition" target="_blank" rel="noopener" aria-label="GitHub" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
-              <a href="https://github.com/nithinsj-code/emotion-recognition" target="_blank" rel="noopener" aria-label="Open" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <!-- 5. Naturo Crop -->
+        <a class="p-card" href="https://github.com/nithinsj-code/naturo-crop" target="_blank" rel="noopener">
+          <div class="p-card-top">
+            <div class="p-folder"><i class="fa-regular fa-folder-open"></i></div>
+            <div class="p-links">
+              <a href="https://github.com/nithinsj-code/naturo-crop" target="_blank" rel="noopener" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/nithinsj-code/naturo-crop" target="_blank" rel="noopener" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
           </div>
-          <div class="project-mid">
-            <h3 class="project-name">Emotion Recognition</h3>
-            <p class="project-description">Real-time deep learning facial expression analysis and emotion classification using custom CNN models in Python.</p>
-            <div class="proj-tags">
-              <span class="proj-tag">Python</span>
-              <span class="proj-tag">CNN</span>
-              <span class="proj-tag">OpenCV</span>
+          <div class="p-card-mid">
+            <h3 class="p-name">Naturo Crop</h3>
+            <p class="p-desc">Intelligent farming assistant to detect plant diseases, recommend treatments, and optimize crop yields using ML and LLMs.</p>
+            <div class="p-tags">
+              <span class="p-tag">Python</span>
+              <span class="p-tag">ML</span>
+              <span class="p-tag">LLM</span>
             </div>
           </div>
-          <div class="project-bottom">
-            <div class="project-lang">
-              <span class="project-lang-dot" style="background-color:#3572A5;"></span>
-              <span>Python</span>
-            </div>
-            <div class="project-stats">
-              <div class="project-stat-item"><i class="fa-regular fa-star"></i><span>0</span></div>
-              <div class="project-stat-item"><i class="fa-solid fa-code-branch"></i><span>0</span></div>
-            </div>
+          <div class="p-card-bot">
+            <div class="p-lang"><span class="p-dot" style="background:#3572A5;"></span> Python</div>
           </div>
-        </div>
+        </a>
 
-      </div><!-- /projects-container -->
+        <!-- 6. Emotion Recognition -->
+        <a class="p-card" href="https://github.com/nithinsj-code/emotion-recognition" target="_blank" rel="noopener">
+          <div class="p-card-top">
+            <div class="p-folder"><i class="fa-regular fa-folder-open"></i></div>
+            <div class="p-links">
+              <a href="https://github.com/nithinsj-code/emotion-recognition" target="_blank" rel="noopener" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/nithinsj-code/emotion-recognition" target="_blank" rel="noopener" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="p-card-mid">
+            <h3 class="p-name">Emotion Recognition</h3>
+            <p class="p-desc">Real-time deep learning facial expression analysis and emotion classification using custom CNN models in Python.</p>
+            <div class="p-tags">
+              <span class="p-tag">Python</span>
+              <span class="p-tag">CNN</span>
+              <span class="p-tag">OpenCV</span>
+            </div>
+          </div>
+          <div class="p-card-bot">
+            <div class="p-lang"><span class="p-dot" style="background:#3572A5;"></span> Python</div>
+          </div>
+        </a>
+
+      </div><!-- /cards-grid -->
     </div>
   </section>
 
-  <!-- ----------------------------------------------------
-       SECTION 3: FOOTER
-       ---------------------------------------------------- -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-content">
       <a href="index.html" class="footer-logo">NITHIN<span>.</span></a>
@@ -280,40 +384,43 @@
     </div>
   </footer>
 
-  <!-- Scroll to Top Button -->
   <button class="scroll-top-btn" id="scroll-top" aria-label="Scroll to top">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- ----------------------------------------------------
-       EXTERNAL LIBRARIES
-       ---------------------------------------------------- -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-
-  <!-- Portfolio Core & Projects Javascript files -->
-  <script src="js/main.js"></script>
-  <script src="js/chatbot.js"></script>
-
-  <!-- Tilt + hover animation init for project cards -->
+  <!-- Scripts (nav & scroll only — NO card rendering JS) -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      if (typeof VanillaTilt !== "undefined") {
-        VanillaTilt.init(document.querySelectorAll(".project-card"), {
-          max: 6, speed: 400, glare: true, "max-glare": 0.15
+    // Hamburger menu
+    var ham = document.getElementById("nav-hamburger");
+    var mNav = document.getElementById("mobile-nav");
+    if (ham && mNav) {
+      ham.addEventListener("click", function () {
+        ham.classList.toggle("active");
+        mNav.classList.toggle("active");
+      });
+      mNav.querySelectorAll("a").forEach(function (l) {
+        l.addEventListener("click", function () {
+          ham.classList.remove("active");
+          mNav.classList.remove("active");
         });
-      }
-      if (typeof gsap !== "undefined") {
-        gsap.from(".project-card", {
-          opacity: 0, y: 30, stagger: 0.1, duration: 0.6,
-          ease: "power2.out", clearProps: "all", delay: 0.2
-        });
-      }
-      if (window.refreshCursorListeners) window.refreshCursorListeners();
+      });
+    }
+
+    // Scroll-top button
+    var scrollBtn = document.getElementById("scroll-top");
+    window.addEventListener("scroll", function () {
+      if (scrollBtn) scrollBtn.classList.toggle("show", window.scrollY > 150);
+    });
+    if (scrollBtn) {
+      scrollBtn.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+    }
+
+    // Navbar scroll class
+    var nav = document.getElementById("navbar");
+    window.addEventListener("scroll", function () {
+      if (nav) nav.classList.toggle("scrolled", window.scrollY > 50);
     });
   </script>
-</body>
 
+</body>
 </html>
