@@ -8,8 +8,8 @@
 
   <!-- SEO Meta Tags -->
   <meta name="description"
-    content="Browse Nithin's portfolio of AI and Full-Stack open-source projects, built dynamically using GitHub API integration.">
-  <meta name="keywords" content="GitHub Projects, Nithin Portfolio, AI Systems, Sadhurangam, Prep4Future">
+    content="Browse Nithin's portfolio of AI and Full-Stack open-source projects including Prep4Future, DraftRex, DocGenius and more.">
+  <meta name="keywords" content="GitHub Projects, Nithin Portfolio, AI Systems, Prep4Future, DraftRex, DocGenius">
   <meta name="author" content="Nithin">
   <meta property="og:title" content="Projects | Nithin">
   <meta property="og:description"
@@ -39,29 +39,6 @@
   <!-- Ambient Glow Effects -->
   <div class="ambient-glow glow-blue"></div>
   <div class="ambient-glow glow-violet"></div>
-
-  <div id="loader">
-    <div class="loader-logo-container">
-      <svg class="loader-svg" viewBox="0 0 100 100">
-        <defs>
-          <linearGradient id="loaderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#ffe45c" />
-            <stop offset="100%" stop-color="#ff5c9a" />
-          </linearGradient>
-        </defs>
-        <path d="M25 75 V25 L75 75 V25" />
-      </svg>
-    </div>
-
-    <div class="loader-progress-box">
-      <div class="loader-percentage" id="loader-percent">0%</div>
-      <div class="loader-bar-bg">
-        <div class="loader-bar-fill" id="loader-bar"></div>
-      </div>
-    </div>
-
-    <div class="loader-terminal" id="loader-terminal"></div>
-  </div>
 
   <!-- ----------------------------------------------------
        SECTION 1: HEADER / NAVIGATION
@@ -102,67 +79,192 @@
     <div class="container">
       <h1 class="section-title">Open Source Projects</h1>
 
-      <!-- Skeleton Loader Container -->
-      <div class="projects-grid" id="projects-skeleton">
-        <!-- Skeleton Card 1 -->
-        <div class="skeleton-card">
+      <!-- Projects Grid — Static Cards (no JS needed) -->
+      <div class="projects-grid" id="projects-container">
+
+        <!-- Card 1: Prep4Future -->
+        <div class="project-card glass" onclick="window.open('https://github.com/nithinsj-code/prep4future-ai','_blank')" style="cursor:pointer;">
           <div class="project-top">
-            <div class="skeleton-circle"></div>
-            <div class="skeleton-line" style="width: 40px; height: 20px;"></div>
+            <div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/nithinsj-code/prep4future-ai" target="_blank" rel="noopener" aria-label="GitHub" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/nithinsj-code/prep4future-ai" target="_blank" rel="noopener" aria-label="Open" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
           </div>
           <div class="project-mid">
-            <div class="skeleton-line title"></div>
-            <div class="skeleton-line text-1" style="margin-bottom: 0.5rem;"></div>
-            <div class="skeleton-line text-2" style="margin-bottom: 0.5rem;"></div>
-            <div class="skeleton-line text-3"></div>
+            <h3 class="project-name">Prep4Future</h3>
+            <p class="project-description">AI-powered career preparation platform with resume analysis, interview practice, and career coaching powered by Groq.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">TypeScript</span>
+              <span class="proj-tag">React</span>
+              <span class="proj-tag">FastAPI</span>
+              <span class="proj-tag">Groq</span>
+            </div>
           </div>
-          <div class="skeleton-footer">
-            <div class="skeleton-line footer-1"></div>
-            <div class="skeleton-line footer-2"></div>
+          <div class="project-bottom">
+            <div class="project-lang">
+              <span class="project-lang-dot" style="background-color:#3178c6;"></span>
+              <span>TypeScript</span>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-item"><i class="fa-regular fa-star"></i><span>0</span></div>
+              <div class="project-stat-item"><i class="fa-solid fa-code-branch"></i><span>0</span></div>
+            </div>
           </div>
         </div>
 
-        <!-- Skeleton Card 2 -->
-        <div class="skeleton-card">
+        <!-- Card 2: DraftRex -->
+        <div class="project-card glass" onclick="window.open('https://github.com/nithinsj-code/draftrex','_blank')" style="cursor:pointer;">
           <div class="project-top">
-            <div class="skeleton-circle"></div>
-            <div class="skeleton-line" style="width: 40px; height: 20px;"></div>
+            <div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/nithinsj-code/draftrex" target="_blank" rel="noopener" aria-label="GitHub" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/nithinsj-code/draftrex" target="_blank" rel="noopener" aria-label="Open" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
           </div>
           <div class="project-mid">
-            <div class="skeleton-line title"></div>
-            <div class="skeleton-line text-1" style="margin-bottom: 0.5rem;"></div>
-            <div class="skeleton-line text-2" style="margin-bottom: 0.5rem;"></div>
-            <div class="skeleton-line text-3"></div>
+            <h3 class="project-name">DraftRex</h3>
+            <p class="project-description">Full-stack AI SaaS platform that helps freelance writers maintain distinct writing styles for multiple clients using AI voice profiles.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Next.js</span>
+              <span class="proj-tag">FastAPI</span>
+              <span class="proj-tag">Python</span>
+            </div>
           </div>
-          <div class="skeleton-footer">
-            <div class="skeleton-line footer-1"></div>
-            <div class="skeleton-line footer-2"></div>
+          <div class="project-bottom">
+            <div class="project-lang">
+              <span class="project-lang-dot" style="background-color:#3178c6;"></span>
+              <span>TypeScript</span>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-item"><i class="fa-regular fa-star"></i><span>0</span></div>
+              <div class="project-stat-item"><i class="fa-solid fa-code-branch"></i><span>0</span></div>
+            </div>
           </div>
         </div>
 
-        <!-- Skeleton Card 3 -->
-        <div class="skeleton-card">
+        <!-- Card 3: DocGenius -->
+        <div class="project-card glass" onclick="window.open('https://github.com/nithinsj-code/doc-genius','_blank')" style="cursor:pointer;">
           <div class="project-top">
-            <div class="skeleton-circle"></div>
-            <div class="skeleton-line" style="width: 40px; height: 20px;"></div>
+            <div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/nithinsj-code/doc-genius" target="_blank" rel="noopener" aria-label="GitHub" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/nithinsj-code/doc-genius" target="_blank" rel="noopener" aria-label="Open" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
           </div>
           <div class="project-mid">
-            <div class="skeleton-line title"></div>
-            <div class="skeleton-line text-1" style="margin-bottom: 0.5rem;"></div>
-            <div class="skeleton-line text-2" style="margin-bottom: 0.5rem;"></div>
-            <div class="skeleton-line text-3"></div>
+            <h3 class="project-name">DocGenius</h3>
+            <p class="project-description">AI-powered document analysis platform to upload PDFs, chat with document content, and generate AI-based text using RAG pipelines.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">FastAPI</span>
+              <span class="proj-tag">RAG</span>
+            </div>
           </div>
-          <div class="skeleton-footer">
-            <div class="skeleton-line footer-1"></div>
-            <div class="skeleton-line footer-2"></div>
+          <div class="project-bottom">
+            <div class="project-lang">
+              <span class="project-lang-dot" style="background-color:#3572A5;"></span>
+              <span>Python</span>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-item"><i class="fa-regular fa-star"></i><span>0</span></div>
+              <div class="project-stat-item"><i class="fa-solid fa-code-branch"></i><span>0</span></div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Projects Dynamic Container (hidden initially) -->
-      <div class="projects-grid" id="projects-container" style="display: none;">
-        <!-- Injected via projects.js -->
-      </div>
+        <!-- Card 4: Sadhurangam -->
+        <div class="project-card glass" onclick="window.open('https://github.com/nithinsj-code/sadhurangam','_blank')" style="cursor:pointer;">
+          <div class="project-top">
+            <div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/nithinsj-code/sadhurangam" target="_blank" rel="noopener" aria-label="GitHub" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/nithinsj-code/sadhurangam" target="_blank" rel="noopener" aria-label="Open" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="project-mid">
+            <h3 class="project-name">Sadhurangam</h3>
+            <p class="project-description">Full-stack real-time multiplayer chess platform with visual move history validation, draw offers, and resign states.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">JavaScript</span>
+              <span class="proj-tag">Node.js</span>
+              <span class="proj-tag">Socket.io</span>
+            </div>
+          </div>
+          <div class="project-bottom">
+            <div class="project-lang">
+              <span class="project-lang-dot" style="background-color:#f1e05a;"></span>
+              <span>JavaScript</span>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-item"><i class="fa-regular fa-star"></i><span>0</span></div>
+              <div class="project-stat-item"><i class="fa-solid fa-code-branch"></i><span>0</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Naturo Crop -->
+        <div class="project-card glass" onclick="window.open('https://github.com/nithinsj-code/naturo-crop','_blank')" style="cursor:pointer;">
+          <div class="project-top">
+            <div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/nithinsj-code/naturo-crop" target="_blank" rel="noopener" aria-label="GitHub" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/nithinsj-code/naturo-crop" target="_blank" rel="noopener" aria-label="Open" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="project-mid">
+            <h3 class="project-name">Naturo Crop</h3>
+            <p class="project-description">Intelligent farming assistant to detect plant diseases, recommend treatments, and optimize crop yields using ML and LLMs.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">ML</span>
+              <span class="proj-tag">LLM</span>
+            </div>
+          </div>
+          <div class="project-bottom">
+            <div class="project-lang">
+              <span class="project-lang-dot" style="background-color:#3572A5;"></span>
+              <span>Python</span>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-item"><i class="fa-regular fa-star"></i><span>0</span></div>
+              <div class="project-stat-item"><i class="fa-solid fa-code-branch"></i><span>0</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Emotion Recognition -->
+        <div class="project-card glass" onclick="window.open('https://github.com/nithinsj-code/emotion-recognition','_blank')" style="cursor:pointer;">
+          <div class="project-top">
+            <div class="project-folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/nithinsj-code/emotion-recognition" target="_blank" rel="noopener" aria-label="GitHub" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/nithinsj-code/emotion-recognition" target="_blank" rel="noopener" aria-label="Open" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="project-mid">
+            <h3 class="project-name">Emotion Recognition</h3>
+            <p class="project-description">Real-time deep learning facial expression analysis and emotion classification using custom CNN models in Python.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">CNN</span>
+              <span class="proj-tag">OpenCV</span>
+            </div>
+          </div>
+          <div class="project-bottom">
+            <div class="project-lang">
+              <span class="project-lang-dot" style="background-color:#3572A5;"></span>
+              <span>Python</span>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-item"><i class="fa-regular fa-star"></i><span>0</span></div>
+              <div class="project-stat-item"><i class="fa-solid fa-code-branch"></i><span>0</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /projects-container -->
     </div>
   </section>
 
@@ -193,8 +295,25 @@
 
   <!-- Portfolio Core & Projects Javascript files -->
   <script src="js/main.js"></script>
-  <script src="js/projects.js"></script>
   <script src="js/chatbot.js"></script>
+
+  <!-- Tilt + hover animation init for project cards -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof VanillaTilt !== "undefined") {
+        VanillaTilt.init(document.querySelectorAll(".project-card"), {
+          max: 6, speed: 400, glare: true, "max-glare": 0.15
+        });
+      }
+      if (typeof gsap !== "undefined") {
+        gsap.from(".project-card", {
+          opacity: 0, y: 30, stagger: 0.1, duration: 0.6,
+          ease: "power2.out", clearProps: "all", delay: 0.2
+        });
+      }
+      if (window.refreshCursorListeners) window.refreshCursorListeners();
+    });
+  </script>
 </body>
 
 </html>
