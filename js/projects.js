@@ -10,7 +10,7 @@
       description: "AI-powered career preparation platform with resume analysis, interview practice, and career coaching.",
       tags: ["Python", "TypeScript", "React", "FastAPI", "Groq"],
       language: "TypeScript",
-      url: "https://github.com/nithinsj-code/Prep4Future"
+      url: "https://github.com/nithinsj-code/prep4future-ai"
     },
     {
       name: "DraftRex",
@@ -18,7 +18,7 @@
       description: "AI SaaS platform that helps freelance writers maintain distinct writing styles for multiple clients using AI-generated voice profiles.",
       tags: ["Next.js", "FastAPI", "Python"],
       language: "TypeScript",
-      url: "https://github.com/nithinsj-code/DraftRex"
+      url: "https://github.com/nithinsj-code/draftrex"
     },
     {
       name: "DocGenius",
@@ -26,7 +26,7 @@
       description: "AI-powered document analysis platform to upload PDFs, chat with document content, and generate AI-based text using RAG.",
       tags: ["Python", "FastAPI", "RAG"],
       language: "Python",
-      url: "https://github.com/nithinsj-code/DocGenius"
+      url: "https://github.com/nithinsj-code/doc-genius"
     },
     {
       name: "Sadhurangam",
