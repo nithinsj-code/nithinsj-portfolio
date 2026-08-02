@@ -1989,6 +1989,7 @@
        SECTION 3: HERO SECTION
        ---------------------------------------------------- -->
   <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
     <div class="container hero-content">
       <span class="hero-pretitle">AI Engineer</span>
       <h1 class="hero-title">
@@ -2720,7 +2721,7 @@
         renderer.render(scene, camera);
       }
 
-      initThree();
+      if (canvas) { initThree(); }
 
 
       /* ----------------------------------------------------
