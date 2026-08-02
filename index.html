@@ -2421,52 +2421,52 @@
       // Define static fallback repositories (in case GitHub API rate limits or fails)
       const fallbackRepos = [
         {
-          name: "Prep4Future",
-          description: "Developed Prep4Future AI, a full-stack career preparation platform that provides AI-powered resume analysis, interview practice, and career coaching.",
-          language: "TypeScript",
-          stargazers_count: 0,
-          forks_count: 0,
-          html_url: "https://github.com/nithinsj-code/Prep4Future"
-        },
-        {
-          name: "DraftRex",
-          description: "Developed DraftRex, a full-stack AI SaaS platform that helps freelance writers maintain distinct writing styles for multiple clients using AI-generated voice profiles.",
-          language: "TypeScript",
-          stargazers_count: 0,
-          forks_count: 0,
-          html_url: "https://github.com/nithinsj-code/DraftRex"
-        },
-        {
-          name: "DocGenius",
-          description: "Developed DocGenius, an AI-powered document analysis platform that allows users to upload PDFs, chat with document content, and generate AI-based text.",
-          language: "Python",
-          stargazers_count: 0,
-          forks_count: 0,
-          html_url: "https://github.com/nithinsj-code/DocGenius"
-        },
-        {
           name: "sadhurangam",
-          description: "Full-stack real-time multiplayer chess platform with visual move history validation, draw offers, and resign states.",
+          description: "A premium real-time multiplayer chess app (Tamil version) with low-latency gameplay, neumorphic UI, Supabase Realtime sync, and secure authentication.",
           language: "JavaScript",
           stargazers_count: 0,
           forks_count: 0,
           html_url: "https://github.com/nithinsj-code/sadhurangam"
         },
         {
+          name: "prep4future-ai",
+          description: "End-to-end AI career readiness platform — resume analysis against job descriptions, mock interviews, answer evaluation, AI career coach, and downloadable PDF reports.",
+          language: "TypeScript",
+          stargazers_count: 0,
+          forks_count: 0,
+          html_url: "https://github.com/nithinsj-code/prep4future-ai"
+        },
+        {
+          name: "draftrex",
+          description: "Multi-client voice matching for freelance writers — create a voice profile per client from writing samples, then rewrite drafts to match each client's style without mixing voices.",
+          language: "TypeScript",
+          stargazers_count: 0,
+          forks_count: 0,
+          html_url: "https://github.com/nithinsj-code/draftrex"
+        },
+        {
+          name: "doc-genius",
+          description: "Upload PDFs and chat with them using Gemini AI — context-aware retrieval answers questions based strictly on your document, plus a built-in AI content generator.",
+          language: "Python",
+          stargazers_count: 0,
+          forks_count: 0,
+          html_url: "https://github.com/nithinsj-code/doc-genius"
+        },
+        {
           name: "naturo-crop",
-          description: "Intelligent farming assistant designed to detect plant diseases, recommend treatments, and optimize crop yields using ML and LLMs.",
-          language: "HTML",
+          description: "AI farming assistant — upload a leaf image to detect diseases with Llama 3 explanations, get LLM-based treatment advice, and generate crop strategies from soil and weather inputs.",
+          language: "Python",
           stargazers_count: 0,
           forks_count: 0,
           html_url: "https://github.com/nithinsj-code/naturo-crop"
         },
         {
-          name: "emotion-recognition",
-          description: "Real-time deep learning facial expression analysis and emotion classification using custom CNN models in Python.",
-          language: "Python",
+          name: "pitch2scale",
+          description: "Transforms a raw startup idea into 5 investor-ready deliverables using a dual-LLM architecture (Groq + Gemini), with Supabase auth and full deployment support.",
+          language: "TypeScript",
           stargazers_count: 0,
           forks_count: 0,
-          html_url: "https://github.com/nithinsj-code/emotion-recognition"
+          html_url: "https://github.com/nithinsj-code/pitch2scale"
         }
       ];
 
@@ -2857,12 +2857,12 @@
       };
 
       const featuredRepoNames = [
-        "Prep4Future",
-        "DraftRex",
-        "DocGenius",
         "sadhurangam",
+        "prep4future-ai",
+        "draftrex",
+        "doc-genius",
         "naturo-crop",
-        "emotion-recognition"
+        "pitch2scale"
       ];
 
       async function fetchGithubRepos() {
