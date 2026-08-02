@@ -2891,7 +2891,25 @@
           }
 
           if (filteredRepos.length > 0) {
-            renderRepos(filteredRepos);
+            // Merge: keep our custom descriptions/language from fallback,
+            // but pull live star & fork counts from the API.
+            const mergedRepos = featuredRepoNames
+              .map(name => {
+                const apiRepo = filteredRepos.find(r => r.name.toLowerCase() === name.toLowerCase());
+                const fallback = fallbackRepos.find(r => r.name.toLowerCase() === name.toLowerCase());
+                if (!apiRepo && !fallback) return null;
+                return {
+                  ...(apiRepo || fallback),
+                  name: fallback ? fallback.name : (apiRepo ? apiRepo.name : name),
+                  description: fallback ? fallback.description : (apiRepo ? apiRepo.description : ""),
+                  language: fallback ? fallback.language : (apiRepo ? apiRepo.language : null),
+                  html_url: fallback ? fallback.html_url : (apiRepo ? apiRepo.html_url : "#"),
+                  stargazers_count: apiRepo ? apiRepo.stargazers_count : 0,
+                  forks_count: apiRepo ? apiRepo.forks_count : 0
+                };
+              })
+              .filter(Boolean);
+            renderRepos(mergedRepos.length > 0 ? mergedRepos : filteredRepos);
           }
         } catch (err) {
           // Fallback already rendered, do nothing
