@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       question: "What projects should I look at first?",
       answer:
-        "Start with Prep4Future AI for career-focused AI, Sadhurangam for real-time multiplayer chess, Naturo-Crop for agriculture AI, and NitzyAI for personal AI assistant experiments."
+        "Start with Prep4Future AI for career-focused AI, Sadhurangam for real-time multiplayer chess, Naturo-Crop for agriculture AI."
     },
     {
       question: "What technologies do you use?",
